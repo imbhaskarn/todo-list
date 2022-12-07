@@ -35,15 +35,15 @@ async def update_todo(req:  Request):
 
     todo.todo = args.get('todo')  # args.todo
     todo.category = args.get('category')  # args.type
-    todo.date = "2022-12-06T13:39:06.852Z"
+    todo.date = args.get('date')
     todo.completed = args.get('completed', False)  # args.date
     session.commit()
     return {'message': "todo updated succefully"}
 
 
 @app.delete('/todo')
-def delete_todo(req:  Request):
-    args = req.json()
+async def delete_todo(req:  Request):
+    args = await req.json()
     session.query(Todo).filter(Todo.id == int(args.get('id'))).delete()
     session.commit()
     return {'message': "todo deleted succefully"}

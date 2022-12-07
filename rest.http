@@ -1,0 +1,38 @@
+POST http://localhost:8080/todo?category=personal&date=2022-12-06T13%3A39%3A06.852Z&todo=This%20is%20my%20test%20todo.
+
+# {
+#     "todo": "This is my test todo.",
+#     "category": "personal",
+#     "date": "2022-12-06T13:39:06.852Z"
+# }
+
+###
+
+POST http://localhost:8000/todo
+Content-Type: application/json
+
+{
+    "todo": "This is my test todo.",
+    "category": "personal",
+    "date": "2022-12-06T13:39:06.852Z"
+}
+
+###
+GET http://localhost:8000/todo
+
+
+###
+PUT http://localhost:8000/todo
+Content-Type: application/json
+
+{
+    "id": 3
+}
+
+###
+DELETE  http://localhost:8080/todo
+Content-Type: application/json
+
+{
+    "id": 3
+}
